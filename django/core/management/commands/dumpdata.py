@@ -147,6 +147,12 @@ class Command(BaseCommand):
             """
             models = serializers.sort_dependencies(app_list.items())
             for model in models:
+                print(" ==== MODEL")
+                print(model.__module__)
+                print(model.__class__)
+                print(model.objects)
+                print(model._base_manager)
+                print(model._default_manager)
                 if model in excluded_models:
                     continue
                 if model._meta.proxy and model._meta.proxy_for_model not in models:
